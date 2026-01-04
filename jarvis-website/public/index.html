@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="arc-reactor"></div>
+        <div id="status">Initializing Assistant...</div>
+        <div id="conversation-log"></div>
+        <div class="input-area">
+            <input type="text" id="text-input" placeholder="Type your command..." disabled>
+            <button id="mic-button" disabled>🎤 Speak</button>
+            
+            <button id="send-button" disabled>Send</button>
+        </div>
+        <img id="uploaded-image-preview" src="" alt="Uploaded Image" style="display: none; max-width: 150px; margin-top: 10px;">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
