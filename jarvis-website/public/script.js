@@ -33,13 +33,13 @@ function speak(text) {
 // --- 2. THE EARS (Speech to Text) ---
 if (window.SpeechRecognition || window.webkitSpeechRecognition) {
     recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.continuous = false; // We use false for better "command-response" accuracy
+    recognition.continuous = false;
     recognition.lang = 'en-US';
 
     recognition.onstart = () => {
         isListening = true;
         statusDiv.innerText = "Assistant is listening...";
-        micButton.style.backgroundColor = '#ff5722'; // Pulse Orange
+        micButton.style.backgroundColor = '#ff5722'; 
     };
 
     recognition.onresult = async (event) => {
@@ -53,7 +53,7 @@ if (window.SpeechRecognition || window.webkitSpeechRecognition) {
 
     recognition.onend = () => {
         isListening = false;
-        micButton.style.backgroundColor = '#005f7a'; // Back to Blue
+        micButton.style.backgroundColor = '#005f7a'; 
     };
 
     recognition.onerror = (event) => {
@@ -68,7 +68,7 @@ function startListening() {
     if (!window.speechSynthesis.speaking && !isListening) {
         try {
             recognition.start();
-        } catch (e) { /* Already started */ }
+        } catch (e) 
     }
 }
 
@@ -82,7 +82,7 @@ async function processCommand(text) {
     statusDiv.innerText = "Assistant is accessing the database...";
 
     try {
-        // CALL YOUR RAG BACKEND
+        // CALL  RAG BACKEND
         const response = await fetch('http://localhost:3000/ask-jarvis', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -95,7 +95,7 @@ async function processCommand(text) {
         if (!jarvisReply || jarvisReply === 'undefined') {
     speak('Sir, your daily quota is exhausted.');
         }else{
-     // Display Jarvis Text
+     // Display  Text
         conversationLog.innerHTML += `<div class="jarvis-message">Assistent: ${jarvisReply}</div>`;
         conversationLog.scrollTop = conversationLog.scrollHeight;
 
