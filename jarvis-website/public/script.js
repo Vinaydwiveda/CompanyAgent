@@ -83,7 +83,7 @@ async function processCommand(text) {
 
     try {
         // CALL  RAG BACKEND
-        const response = await fetch('http://localhost:3000/ask-jarvis', {
+        const response = await fetch('https://companyagentbackend.onrender.com/ask-jarvis', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ textInput: text })
